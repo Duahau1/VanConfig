@@ -1,0 +1,274 @@
+[user]
+	email = vxn@kount.com
+	name = duahau1
+[push]
+	default = current	
+[alias]
+	log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+	## ---- add
+	a = add --all
+	ai = add -i
+
+	## ---- apply
+	ac = apply --check
+	ap = apply
+	as = apply --stat
+	
+
+	## ---- am
+	ama = am --abort
+	amr = am --resolved
+	ams = am --skip
+	
+
+	## ---- branch
+	b = branch
+	ba = branch -a
+	bc = rev-parse --abbrev-ref HEAD
+	bd = branch -d
+	bdd = branch -D
+	br = branch -r
+	bs = !git-branch-status
+	bu = !git rev-parse --abbrev-ref --symbolic-full-name "@{u}"
+	
+
+	## ---- commit
+	c = commit
+	ca = commit -a
+	cad = commit -a --amend
+	cam = commit -am
+	cd = commit --amend
+	ced = commit --allow-empty --amend
+	cem = commit --allow-empty -m
+	cm = commit -m
+	
+
+	## ---- checkout
+	co = checkout
+	cob = checkout -b
+	com = checkout master
+	
+
+	## ---- clone
+	cl = clone
+	cld = clone --depth 1
+	clg = !sh -c 'git clone git://github.com/$1 $(basename $1)' -
+	clgp = !sh -c 'git clone git@github.com:$1 $(basename $1)' -
+	clgu = !sh -c 'git clone git@github.com:$(git config --get user.username)/$1 $1' -
+	
+
+	## ---- cherry
+	cp = cherry-pick
+	cpa = cherry-pick --abort
+	cpc = cherry-pick --continue
+	
+
+	## ---- diff
+	d = diff
+	dc = diff --cached
+	dck = diff --cached --check
+	dct = difftool --cached
+	dk = diff --check
+	dp = diff --patience
+	dt = difftool
+	
+
+	## ---- fetch
+	f = fetch
+	fo = fetch origin
+	fu = fetch upstream
+	
+
+	## ---- format
+	fp = format-patch
+	
+
+	## ---- fsck
+	fk = fsck
+	
+
+	## ---- status
+	g = grep -p
+	
+
+	## ---- log
+	l = log --oneline
+	lg = log --oneline --graph --decorate
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+
+	
+
+	## ---- ls
+	ls = ls-files
+	lsf = !git ls-files | grep -i
+
+	## ---- merge
+	m = merge
+	ma = merge --abort
+	mc = merge --continue
+	ms = merge --skip
+
+	## ---- prune
+	pr = prune -v
+
+	## ---- push
+	ps = push
+	psf = push -f
+	pst = push --tags
+	psu = push -u
+	
+	## ---- push origin
+	psao = push --all origin
+	psfo = push -f origin
+	pso = push origin
+	psod = push origin --delete
+	psuo = push -u origin
+
+	psaoc = !git push --all origin $(git bc)
+	psaom = push --all origin master
+	psdc = !git push origin :$(git bc)
+	psfoc = !git push -f origin $(git bc)
+	psfom = push -f origin master
+	psoc = !git push origin $(git bc)
+	psom = push origin master
+	psuoc = !git push -u origin $(git bc)
+	psuom = push -u origin master
+
+	## ---- pull
+	pl = pull
+	pb = pull --rebase
+
+	## ---- pull origin
+	pbo = pull --rebase origin
+	pboc = !git pull --rebase origin $(git bc)
+	pbom = pull --rebase origin master
+	plo = pull origin
+	ploc = !git pull origin $(git bc)
+	plom = pull origin master
+
+	## ---- pull upstream
+	pbuc = !git pull --rebase upstream $(git bc)
+	pbum = pull --rebase upstream master
+	plu = pull upstream
+	pluc = !git pull upstream $(git bc)
+	plum = pull upstream master
+
+	## ---- rebase
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase --interactive
+	rbs = rebase --skip
+
+	## ---- reset
+	re = reset
+	reh = reset --hard
+	rehh = reset --hard HEAD
+	rehom = reset --hard origin/master
+	rem = reset --mixed
+	remh = reset --mixed HEAD
+	res = reset --soft
+	resh = reset --soft HEAD
+	rh = reset HEAD
+
+	## ---- remote
+	r = remote
+	ra = remote add
+	rao = remote add origin
+	rau = remote add upstream
+	rn = remote rename
+	rp = remote prune
+	rpo = remote prune origin
+	rpu = remote prune upstream
+	rr = remote rm
+	rro = remote remove origin
+	rru = remote remove upstream
+	rs = remote show
+	rso = remote show origin
+	rsu = remote show upstream
+	rv = remote -v
+
+	## ---- remove
+	rmf = rm -f
+	rmrf = rm -r -f
+
+	## ---- status
+	s = status
+	sb = status -s -b
+	
+	## ---- stash
+	st = stash    
+	sa = stash apply    # Play a single stashed state from the stash list and apply it on top of the current working tree state. Unlike pop, the state isn't removed from the stash list
+	sc = stash clear    # Remove all the stash entries
+	sd = stash drop    # Remove a single stash entry from the list of stash entries
+	sl = stash list    # List the stash entries that you currently have
+	sp = stash pop    # Remove a single stashed state from the stash list and apply it on top of the current working tree state
+	ss = stash save    # This option is deprecated in favour of "git stash push"
+	ssk = stash save -k
+	spu = stash push    # Save your local modifications to a new stash entry and roll them back to HEAD
+	stl = !git stash list | wc -l 2>/dev/null | grep -oEi '[0-9][0-9]*'
+	sw = stash show    #  Show the changes recorded in the stash entry as a diff between the stashed contents and the commit back when the stash entry was first created
+
+	## ---- tag
+	t = tag    # Create tag
+	td = tag -d    # Delete tag
+	tl = tag -l    # List tags
+
+	## ---- show
+	w = show
+	wp = show -p
+	wr = show -p --no-color
+	
+
+	## ---- svn
+	svnd = svn dcommit
+	svnl = svn log --oneline --show-commit
+	svnr = svn rebase
+	
+
+	## ---- submodule
+	subadd = !sh -c 'git submodule add git://github.com/$1 $2/$(basename $1)' -
+	subpull = !git submodule foreach git pull --tags origin master
+	subup = submodule update --init --recursive
+
+	## ---- update
+	assume = update-index --assume-unchanged
+	assumeall = !git status -s | awk {'print $2'} | xargs git assume
+	assumed = !git ls -v | grep ^h | cut -c 3-
+	unassume = update-index --no-assume-unchanged
+	unassumeall = !git assumed | xargs git unassume
+
+	## ---- shell
+	aliases = !git config -l | grep alias | cut -c 7-
+	bare = !sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -
+	bump = !sh -c 'git commit -am \"Version bump v$1\" && git psuoc && git release $1' -
+	checkmerged = !sh -c 'git branch --merged | egrep -v \"(^\\*|master|dev|release)\"' -
+	cleanmerged = !sh -c 'git branch --merged | egrep -v \"(^\\*|master|dev|release)\" | xargs git branch -d' -
+	merged = !sh -c 'git o master && git plom && git bd $1 && git rpo' -
+	release = !sh -c 'git tag v$1 && git pst' -
+	serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+	snap = !git stash save 'snapshot: $(date)' && git stash apply 'stash@{0}'
+	unrelease = !sh -c 'git tag -d v$1 && git pso :v$1' -
+	whois = !sh -c 'git log -i -1 --author=\"$1\" --pretty=\"format:%an <%ae>\"' -
+
+	## ---- rev
+	ahead = !git rev-list --right-only --count $(git bu)...HEAD
+	behind = !git rev-list --left-only --count $(git bu)...HEAD
+
+	## ---- misc
+	human = name-rev --name-only --refs=refs/heads/*
+	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+	subrepo = !sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 master' -
+	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pager]
+	branch = false
+[pull]
+	rebase = false
