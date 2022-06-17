@@ -1,0 +1,162 @@
+### colored highlighting is awesome
+if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
+	eval `dircolors ~/.dircolors`
+	alias ls='ls -hF --color=auto'
+
+    alias grep='grep --color=always'
+    alias fgrep='fgrep --color=always'
+    alias egrep='egrep --color=always'
+fi
+
+#===== @angular/cli aliases
+alias ngup="ng update @angular/core @angular/cli @angular/material @angular/cdk"
+
+#===== config aliases
+alias edita="code ~/.aliases"
+alias editgc="code ~/.gitconfig"
+alias editnpm="code ~/.npmrc"
+alias editsrc="code ~/.zshrc"
+alias editzshtheme="code ~/duahau1.zsh-theme"
+alias rsrc="source ~/.zshrc"
+
+#===== docker aliases
+alias dkcon="docker ps -aq | xargs docker rm -f"
+alias dkim="docker image ls -q | xargs docker rmi -f"
+alias dpsa="docker ps -a"
+alias dwipe="docker system prune --volumes -f"
+
+#===== docker-compose aliases
+alias dcb="docker-compose build"
+alias dcd="docker-compose down"
+alias dcu="docker-compose up"
+alias dcub="docker-compose up --build"
+
+#===== npm aliases
+
+##~~ npm -global
+alias npmgi="npm -g install"
+alias npmgls="npm -g ls"
+alias npmglsd="npm -g ls --depth"
+
+
+##~~ npm install
+alias npmicinq="npm install @kount/cinq-lib@latest"
+alias npmid="npm install --save-dev"
+alias npmip="npm install --save"
+alias npmipfe="npm install @kount/pfe-lib1@latest"
+alias npmlo="npm install --package-lock-only"
+alias npmloci="npm install --package-lock-only && npm ci"
+alias npmlof="npm install --package-lock-only --force"
+
+alias npmrm="npm remove"
+
+alias npmdoc="npm docs"
+alias npmr="npm run"
+
+alias npma="npm audit"
+alias npmaf="npm audit fix"
+alias npmb="npm run build"
+alias npmbs="npm run build:sandbox"
+alias npmbp="npm run build:prod"
+alias npmc="npm run clean"
+alias npmd="npm run dev"
+alias npmf="npm run format"
+alias npml="npm run lint"
+alias npmlsd="npm ls --depth"
+alias npms="npm start"
+alias npmsl="npm run start:local"
+alias npmt="npm run test"
+alias npmtw="npm run test:watch"
+alias npmtwd="npm run test:watch:debug"
+alias npmu="npm update"
+alias npmua="npm update --all"
+alias npmw="npm run watch"
+
+
+alias npmsi7="npm run start --env=intg07"
+alias npmsi10="npm run start --env=intg10"
+alias npmsi11="npm run start --env=intg11"
+alias npmsq6="npm run start --env=qa06"
+alias npmsq7="npm run start --env=qa07"
+alias npmss13="npm run start --env=sandbox13"
+
+#===== rm aliases
+alias rmnm="rm -rf ./node_modules"
+alias rmnmpl="rm -rf ./node_modules ./package-lock.json"
+alias rmpl="rm ./package-lock.json"
+alias rmrf="rm -rf"
+
+#===== timestamp aliases
+alias da='date "+%Y-%m-%d %A    %T %Z"'
+alias stamp='date "+%Y/%m/%d %a %H:%M:%S"'
+
+#===== tree aliases
+alias tree1='tree -L 1'
+alias tree2='tree -L 2'
+alias tree3='tree -L 3'
+alias tree='tree -hF'
+
+#===== vscode aliases
+alias vsc="code ."
+
+#===== sass-migrator aliases
+alias sassmv="sass-migrator module --verbose"
+alias sassmvd="sass-migrator module --verbose --migrate-deps"
+alias sassmnmv="sass-migrator module --load-path node_modules"
+alias sassmnmvd="sass-migrator module --verbose --migrate-deps --load-path node_modules"
+
+#===== ? misc aliases ?
+# alias which='type -all'
+alias c='clear'
+alias clean="rm *~"
+alias cleanweb='rm -rf build/* node_modules/* dist/*'
+alias df='df -h -l -x tmpfs -x usbfs'
+alias dua='ls -A | xargs du -sch * | sort -h'
+alias duas='ls -A | xargs sudo du -sch * | sort -h'
+alias fname='find . -name $1'
+alias h='history | grep $1'
+alias hosts='sudo vim /private/etc/hosts'
+alias lsps='ps -ef | grep $1'
+alias path='echo -e ${PATH//:/\\n}'
+alias ports="lsof -iTCP -P -sTCP:LISTEN" # Show used ports # netstat
+alias sfname='sudo find / -name $1'
+alias sudo='sudo ' # Replace sudo so it can be used with other aliases
+alias top-commands='history | awk "{print $2}" | awk "BEGIN {FS="|"} {print $1}" |sort|uniq -c | sort -rn | head -10' # Show most popular commands
+alias trash="rm -rr ~/.Trash"
+alias ~="cd ~"             
+
+#===== external (github) folder aliases
+#~~ @angular
+NG="~/github/angular"
+alias cdng="cd $NG"
+alias vsng="code $NG"
+
+#~~ @angular/material
+MAT="~/github/angular-material"
+alias mat="cd $MAT"
+alias vsmat="code $MAT"
+
+#~~ bootstrap
+BOOT="~/github/bootstrap"
+alias boot="cd $BOOT"
+alias vsboot="code $BOOT"
+
+#~~ lodash
+LO="~/github/lodash"
+alias lo="cd $LO"
+alias vslodash="code $LO"
+
+#~~ ng-select
+NGSELECT="~/github/ng-select"
+alias ngselect="cd $NGSELECT"
+alias vsngselect="code $NGSELECT"
+
+#~~ ag-grid
+AGGRID="~/github/ag-grid"
+alias aggrid="cd $AGGRID"
+alias vsaggrid="code $AGGRID"
+
+#~~ okta
+OKTA="~/github/okta"
+alias okta="cd $OKTA"
+alias vsokta="code $OKTA"
